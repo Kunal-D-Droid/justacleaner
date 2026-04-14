@@ -2,6 +2,7 @@ import sys
 import os
 import threading
 import ctypes
+import json
 from PyQt6.QtWidgets import (
     QApplication, QWidget, QVBoxLayout, QHBoxLayout,
     QPushButton, QLabel, QRadioButton,
@@ -114,12 +115,31 @@ class CleanerApp(QWidget):
     # ---------------- SCHEDULER ----------------
 
     def save_schedule(self):
-        exe_path = sys.argv[0]
+        if getattr(sys, 'frozen', False):
+            exe_path = sys.executable
+        else:
+            exe_path = os.path.abspath(sys.argv[0])
+
+        config_path = os.path.join(os.path.dirname(exe_path), "config.json")
+        try:
+            config = {
+                "do_system": self.chk_system.isChecked(),
+                "do_downloads": self.chk_downloads.isChecked(),
+                "do_vpn": self.chk_vpn.isChecked(),
+                "do_outlook": self.chk_outlook.isChecked(),
+                "do_deep": self.chk_deep.isChecked()
+            }
+            with open(config_path, "w") as f:
+                json.dump(config, f)
+        except:
+            pass
 
         if self.radio_hours.isChecked():
             try:
                 hours = int(self.hours_input.text())
-                schedule_hours(hours, run_clean)
+                if hours <= 0:
+                    raise ValueError
+                schedule_hours(hours, exe_path)
                 self.status.setText(f"Scheduled every {hours} hrs")
             except:
                 self.status.setText("Invalid hours")
@@ -139,6 +159,28 @@ def is_admin():
         return False
 
 if __name__ == '__main__':
+    if "--silent-clean" in sys.argv:
+        if getattr(sys, 'frozen', False):
+            exe_path = sys.executable
+        else:
+            exe_path = os.path.abspath(sys.argv[0])
+            
+        config_path = os.path.join(os.path.dirname(exe_path), "config.json")
+        try:
+            with open(config_path, "r") as f:
+                config = json.load(f)
+        except:
+            config = {}
+            
+        run_clean(
+            do_system=config.get("do_system", True),
+            do_downloads=config.get("do_downloads", False),
+            do_vpn=config.get("do_vpn", False),
+            do_outlook=config.get("do_outlook", False),
+            do_deep=config.get("do_deep", False)
+        )
+        sys.exit(0)
+
     if not is_admin():
         script = sys.executable
         params = ' '.join([f'"{sys.argv[0]}"'] + sys.argv[1:]) if not getattr(sys, 'frozen', False) else ''
