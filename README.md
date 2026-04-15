@@ -88,7 +88,7 @@ Uninstalling a VPN is rarely enough—most leave their secret configurations beh
 
 The fastest way to get started is downloading our compiled, ready-to-run setup wizard. The installer seamlessly handles everything and automatically configures the application safely on your Windows machine.
 
-👉 **[Download JustACleaner_Setup.zip](https://github.com/Kunal-D-Droid/justacleaner/releases/latest/download/JustACleaner_Setup.zip)**
+👉 **[Download Just A Cleaner](https://drive.google.com/file/d/16Uf-uS0gRu3DmnKZC4YLAIJS8nV096Yd/view?usp=drivesdk)**
 
 *(Feel free to browse past versions in the [Releases](https://github.com/Kunal-D-Droid/justacleaner/releases) section.)*
 
@@ -137,7 +137,7 @@ git checkout -b feature/your-awesome-feature
 
 ## 👤 Author & License
 
-Built with extreme focus by **[Kunal](https://www.kunaldas.tech)**.
+Open Source by **[Kunal](https://www.kunaldas.tech)**.
 
 Licensed under the **GNU GENERAL PUBLIC LICENSE**.
 

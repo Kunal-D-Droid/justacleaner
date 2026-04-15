@@ -5,3 +5,4 @@ dist/
 creds.txt
 *.exe
 config.json
+*.zip

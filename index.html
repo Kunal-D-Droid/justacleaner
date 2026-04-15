@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just a Cleaner | Simple. Deep. Private.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Outfit:wght@500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #05070a;
+            --card-bg: rgba(13, 17, 23, 0.8);
+            --accent-cyan: #00E5FF;
+            --accent-purple: #994CFF;
+            --text-main: #F0F6FC;
+            --text-dim: #8B949E;
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background: radial-gradient(circle at 50% -20%, #1a222d 0%, var(--bg) 70%);
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 90%;
+            margin: 0 auto;
+            padding-top: 80px;
+            padding-bottom: 80px;
+            text-align: center;
+        }
+
+        header {
+            margin-bottom: 60px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 24px;
+            filter: drop-shadow(0 0 20px rgba(0, 229, 255, 0.3));
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .slogan {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        /* Hero Image Container */
+        .preview-pane {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 10px;
+            backdrop-filter: blur(12px);
+            margin-bottom: 60px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .preview-pane img {
+            width: 100%;
+            border-radius: 12px;
+            display: block;
+        }
+
+        /* Features Grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            padding: 32px;
+            border-radius: 16px;
+            text-align: left;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(0, 229, 255, 0.2);
+        }
+
+        .icon-circle {
+            width: 48px;
+            height: 48px;
+            background: rgba(0, 229, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--accent-cyan);
+            font-size: 24px;
+        }
+
+        .feature-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Buttons */
+        .cta-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            animation: fadeIn 2s ease-in;
+        }
+
+        .btn-primary {
+            position: relative;
+            padding: 20px 48px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0b1015;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(0, 229, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 229, 255, 0.5);
+        }
+
+        .btn-secondary {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            color: var(--accent-cyan);
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 40px 0;
+            border-top: 1px solid var(--glass-border);
+            width: 100%;
+            text-align: center;
+        }
+
+        .footer-text {
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .footer-link {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding-top: 50px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-primary {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <img src="assets/cleanerlogo.png" alt="Just a Cleaner Logo" class="logo">
+            <h1>Just a <span class="gradient-text">Cleaner</span></h1>
+            <p class="slogan">The definitive, lightweight Windows utility built for absolute privacy and total
+                performance. No bloat. No noise.</p>
+        </header>
+
+        <section class="preview-pane">
+            <img src="assets/demo.gif" alt="Application Interface Preview">
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <div class="icon-circle">🛡️</div>
+                <h3>Deep Privacy</h3>
+                <p>Flush DNS cache, wipe clipboard history, and erase Explorer logs with one click.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon-circle">⚡</div>
+                <h3>Maximum Speed</h3>
+                <p>Zero-telemetry architecture ensures the cleaner runs in seconds, not minutes.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon-circle">⏱️</div>
+                <h3>Auto Schedule</h3>
+                <p>Native integration with Windows Task Scheduler for invisible, automated cleaning.</p>
+            </div>
+        </section>
+
+        <div class="cta-group">
+            <a href="https://drive.google.com/file/d/16Uf-uS0gRu3DmnKZC4YLAIJS8nV096Yd/view?usp=drivesdk"
+                class="btn-primary">DOWNLOAD FOR WINDOWS</a>
+            <a href="https://github.com/Kunal-D-Droid/justacleaner" class="btn-secondary">View Source Code on GitHub</a>
+        </div>
+    </div>
+
+    <footer>
+        <p class="footer-text">Open Source by <a href="https://www.kunaldas.tech" class="footer-link">Kunal</a> &bull;
+            Licensed under GNU GPL</p>
+    </footer>
+
+</body>
+
+</html>
