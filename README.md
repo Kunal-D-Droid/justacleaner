@@ -2,7 +2,9 @@
 
 > The definitive, lightweight Windows cleaner built for privacy, sustained performance, and absolute transparency.
 
-![Banner](cleanerlogo.png)
+<div align="center">
+  <img src="cleanerlogo.png" alt="Banner" width="200" />
+</div>
 
 ---
 
@@ -19,9 +21,9 @@ Cleaning this manually is tedious. Most commercial tools available today are blo
 
 ## 🎥 Demo
 
-*[Tip: Replace demo.gif with your actual recording]*
-
-![Demo](demo.gif)
+<div align="center">
+  <img src="assets/demo.gif" alt="Just a Cleaner Demo" />
+</div>
 
 ---
 
