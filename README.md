@@ -19,7 +19,7 @@ Cleaning this manually is tedious. Most commercial tools available today are blo
 
 ## 🎥 Demo
 
-> *(Tip: Add your demo.gif here to visually showcase the sleek scanning animation!)*
+*[Tip: Replace demo.gif with your actual recording]*
 
 ![Demo](demo.gif)
 
@@ -57,15 +57,15 @@ Uninstalling a VPN is rarely enough—most leave their secret configurations beh
 ## ⚡ Why Choose Just a Cleaner?
 
 **Most system cleaners today:**
-❌ Are heavily bloated with annoying pop-ups.
-❌ Hide what they really delete behind "Magic Clean" buttons.
-❌ Feel invasive, ad-heavy, and untrustworthy.
+* ❌ Are heavily bloated with annoying pop-ups.
+* ❌ Hide what they really delete behind "Magic Clean" buttons.
+* ❌ Feel invasive, ad-heavy, and untrustworthy.
 
 **Just a Cleaner is drastically different:**
-✅ **Lightweight & Blazing Fast:** Designed optimally to run its sequence in seconds.
-✅ **Fully Transparent:** You see exact, real-time diagnostic progress on the interface.
-✅ **Focused & Unintrusive:** Does exactly what it says and nothing else.
-✅ **Built for the Privacy-Conscious:** Specifically targets local history and registries that expose you.
+* ✅ **Lightweight & Blazing Fast:** Designed optimally to run its sequence in seconds.
+* ✅ **Fully Transparent:** You see exact, real-time diagnostic progress on the interface.
+* ✅ **Focused & Unintrusive:** Does exactly what it says and nothing else.
+* ✅ **Built for the Privacy-Conscious:** Specifically targets local history and registries that expose you.
 
 ---
 
@@ -137,7 +137,7 @@ git checkout -b feature/your-awesome-feature
 
 Built with extreme focus by **[Kunal](https://www.kunaldas.tech)**.
 
-Licensed under the **MIT License**.
+Licensed under the **GNU GENERAL PUBLIC LICENSE**.
 
 ---
 💡 *Keep your system clean. Keep your data private. Stay fundamentally in control.*
