@@ -1,7 +1,7 @@
 __pycache__/
 build/
 dist/
-*.spec
 *.pyc
 creds.txt
 *.exe
+config.json

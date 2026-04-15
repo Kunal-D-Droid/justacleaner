@@ -208,8 +208,6 @@ class InfoDialog(QDialog):
         layout.addWidget(lbl)
         layout.addWidget(btn)
 
-# ---------------- PROGRESS VIEW WIDGETS ----------------
-
 class ProgressSquare(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -335,7 +333,6 @@ class ProgressView(QWidget):
         layout.addLayout(header_lay)
         layout.addSpacing(5)
         
-        # Rows
         self.row_temp = DiagnosticRow("Clearing Temp Files...", "WAITING")
         self.row_dns = DiagnosticRow("Flushing DNS Cache...", "PENDING")
         self.row_logs = DiagnosticRow("Wiping Event Logs...", "PENDING")
@@ -415,7 +412,6 @@ class CleanerApp(QMainWindow):
         self.main_layout.setContentsMargins(0, 0, 0, 0)
         self.main_layout.setSpacing(0)
         
-        # Header (Persistent)
         header_widget = QWidget()
         header_layout = QHBoxLayout(header_widget)
         header_layout.setContentsMargins(20, 20, 20, 10)
@@ -432,12 +428,17 @@ class CleanerApp(QMainWindow):
         header_layout.addWidget(header_logo)
         header_layout.addWidget(header_title)
         header_layout.addStretch()
+        
+        credits_lbl = QLabel("<a href='https://www.kunaldas.tech' style='color: #8295d2; text-decoration: none;'>Open Source by Kunal</a>")
+        credits_lbl.setOpenExternalLinks(True)
+        credits_lbl.setStyleSheet("font-size: 10px; font-family: 'Segoe UI'; font-weight: bold;")
+        header_layout.addWidget(credits_lbl)
+        
         self.main_layout.addWidget(header_widget)
         
         self.stacked_widget = QStackedWidget()
         self.main_layout.addWidget(self.stacked_widget)
         
-        # ---------------- VIEW 0: SETTINGS ----------------
         self.settings_page = QWidget()
         settings_layout = QVBoxLayout(self.settings_page)
         settings_layout.setContentsMargins(0, 0, 0, 0)
@@ -570,7 +571,6 @@ class CleanerApp(QMainWindow):
         settings_layout.addWidget(bottom_widget)
         self.stacked_widget.addWidget(self.settings_page)
         
-        # ---------------- VIEW 1: PROGRESS ----------------
         self.progress_page = ProgressView()
         self.progress_page.cancel_btn.clicked.connect(self.return_to_settings)
         self.stacked_widget.addWidget(self.progress_page)
@@ -578,8 +578,6 @@ class CleanerApp(QMainWindow):
     def show_info_dialog(self, text):
         dlg = InfoDialog(text, self)
         dlg.exec()
-
-    # ---------------- CLEAN FLOW ----------------
 
     def start_clean(self):
         self.stacked_widget.setCurrentIndex(1)
@@ -601,10 +599,7 @@ class CleanerApp(QMainWindow):
         self.status_dot.setStyleSheet("color: #994CFF;")
 
     def clean_task(self, do_sys, do_dl, do_vpn, do_outlook, do_deep):
-        # Fire and forget the cleaners
         run_clean(do_system=do_sys, do_downloads=do_dl, do_vpn=do_vpn, do_outlook=do_outlook, do_deep=do_deep)
-
-    # ---------------- SCHEDULER ----------------
 
     def save_schedule(self):
         if getattr(sys, 'frozen', False):
