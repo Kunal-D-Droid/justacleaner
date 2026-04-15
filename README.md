@@ -3,7 +3,7 @@
 > The definitive, lightweight Windows cleaner built for privacy, sustained performance, and absolute transparency.
 
 <div align="center">
-  <img src="cleanerlogo.png" alt="Banner" width="200" />
+  <img src="assets/cleanerlogo.png" alt="Banner" width="200" />
 </div>
 
 ---
